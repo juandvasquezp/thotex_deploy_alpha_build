@@ -24,7 +24,7 @@ class AuthService {
     private error: Ref<string>
     constructor() {
         // this.axios = axios
-        this.url = process.env.VUE_APP_BACKEND_URL
+        this.url = "https://thotexback-941d594c366a.herokuapp.com/api/v1.0"
         // this.url = 'https://thotex-d214cd515eaf.herokuapp.com/api/v1.0'
         this.jwt = ref('')
         this.error = ref('')

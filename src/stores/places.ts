@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import { IDepartamento, IMunicipio } from '@/interfaces/IPlaces'
 import { useCookies } from 'vue3-cookies';
 
-const url = process.env.VUE_APP_BACKEND_URL
+const url = "https://thotexback-941d594c366a.herokuapp.com/api/v1.0"
 
 export const usePlacesStore = defineStore('places', {
     state: () => ({

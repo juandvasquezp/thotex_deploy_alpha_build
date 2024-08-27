@@ -15,7 +15,7 @@ class FetchService <T extends Epic> {
         this.data = [];
         this.singleData = {} as T
         //this.url = process.env.VUE_APP_API_URL;
-        this.url = process.env.VUE_APP_BACKEND_URL
+        this.url = "https://thotexback-941d594c366a.herokuapp.com/api/v1.0"
         // this.url = "https://thotex-d214cd515eaf.herokuapp.com/api/v1.0"
         switch (mode) {
             case 'sales':
