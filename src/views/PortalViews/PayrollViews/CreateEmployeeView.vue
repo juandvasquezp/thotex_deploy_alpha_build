@@ -42,6 +42,8 @@
                     <select required v-model="employeeForm.department" name="Departamento" id="Departamento" class="input">
                         <option @click="getMunicipios(department)" v-for="department in placesStore.departamentos" :key="department.Dep_id" :value="department.Dep_id">{{department.Dep_nombre}}</option>
                     </select>
+                    <h2 class="label">Dirección</h2>
+                    <input required v-model="employeeForm.address" class="input" type="text" placeholder="Dirección" />
                     <h2 class="label">Celular</h2>
                     <input required v-model="employeeForm.phoneNumber" class="input" type="number" placeholder="Celular" />
                 </div>
@@ -243,7 +245,7 @@
             <form class="form-global" onsubmit="event.preventDefault()">
                 <div class="column">
                     <h2 class="label">EPS</h2>
-                    <select required v-model="employeeForm.eps" class="input" >
+                    <select required v-model.number="employeeForm.eps" class="input" >
                         <option value="1">ESSC24-COOSALUD ESS EPS-S</option>
                         <option value="2">EPS037-NUEVA EPS S.A - NUEVA EMPRESA PROMOTORA DE SALUD NUEVA EPS S.A</option>
                         <option value="3">ESSC07-EPS-S MUTUAL SER</option>
@@ -293,17 +295,64 @@
                         <option value="47">RES014-UNIVERSIDAD PEDAGOGICA Y TECNOLOGICA DE COLOMBIA - UPT</option>
                     </select>
                     <h2 class="label">Fondo de prensiones</h2>
-                    <select class="input" v-model="employeeForm.insurance">
+                    <select class="input" v-model.number="employeeForm.insurance">
                         <option value="1">25-14-COLPENSIONES</option>
                         <option value="2">231001-COLFONDOS</option>
                         <option value="3">230201-PROTECCIÓN</option>
                         <option value="4">230901-OLD MUTUAL (ANTES SKANDIA)</option>
                         <option value="5">230301-PORVENIR</option>
                     </select>
+                    <h2 class="label">Caja de compensación</h2>
+                    <select class="input" v-model.number="employeeForm.compensation">
+                        <option value="1">CCF02-CAJA DE COMPENSACIÓN FAMILIAR CAMACOL COMFAMILIAR CAMACOL</option>
+                        <option value="2">CCF03-CAJA DE COMPENSACIÓN FAMILIAR COMFENALCO ANTIOQUIA</option>
+                        <option value="3">CCF04-CAJA DE COMPENSACIÓN FAMILIAR DE ANTIOQUIA COMFAMA</option>
+                        <option value="4">CCF05-CAJA DE COMPENSACIÓN FAMILIAR CAJACOPI ATLANTICO</option>
+                        <option value="5">CCF06-CAJA DE COMPENSACIÓN FAMILIAR DE BARRANQUILLA COMBARRANQUILLA</option>
+                        <option value="6">CCF07-CAJA DE COMPENSACIÓN FAMILIAR COMFAMILIAR DEL ATLANTICO</option>
+                        <option value="7">CCF08-CAJA DE COMPENSACIÓN FAMILIAR DE FENALCO - ANDI COMFENALCO CARTAGENA</option>
+                        <option value="8">CCF09-CAJA DE COMPENSACIÓN FAMILIAR DE CARTAGENA</option>
+                        <option value="9">CCF10-CAJA DE COMPENSACIÓN FAMILIAR DE BOYACA - COMFABOY</option>
+                        <option value="10">CCF11-CAJA DE COMPENSACIÓN FAMILIAR DE CALDAS</option>
+                        <option value="11">CCF13-CAJA DE COMPENSACIÓN FAMILIAR DEL CAQUETÁ - COMFACA</option>
+                        <option value="12">CCF14-CAJA DE COMPENSACIÓN FAMILIAR DEL CAUCA - COMFACAUCA</option>
+                        <option value="13">CCF15-COMFACESAR</option>
+                        <option value="14">CCF16-CAJA DE COMPENSACIÓN FAMILIAR DE CORDOBA COMFACOR</option>
+                        <option value="15">CCF21-CAJA DE COMPENSACIÓN FAMILIAR CAFAM</option>
+                        <option value="16">CCF22-CAJA COLOMBIANA DE SUBSIDIO FAMILIAR COLSUBSIDIO</option>
+                        <option value="17">CCF24-CAJA DE COMPENSACIÓN FAMILIAR COMPENSAR</option>
+                        <option value="18">CCF26-CAJA DE COMPENSACIÓN FAMILIAR DE CUNDINAMARCA - COMFACUNDI</option>
+                        <option value="19">CCF29-CAJA DE COMPENSACIÓN FAMILIAR DEL CHOCÓ</option>
+                        <option value="20">CCF30-CAJA DE COMPENSACIÓN FAMILIAR DE LA GUAJIRA</option>
+                        <option value="21">CCF32-CAJA DE COMPENSACIÓN FAMILIAR DEL HUILA - COMFAMILIAR</option>
+                        <option value="22">CCF33-CAJA DE COMPENSACIÓN FAMILIAR DEL MAGDALENA</option>
+                        <option value="23">CCF34-CAJA DE COMPENSACIÓN FAMILIAR REGIONAL DEL META COFREM</option>
+                        <option value="24">CCF35-CAJA DE COMPENSACIÓN FAMILIAR DE NARIÑO</option>
+                        <option value="25">CCF36-CAJA DE COMPENSACIÓN FAMILIAR DEL ORIENTE COLOMBIANO COMFAORIENTE</option>
+                        <option value="26">CCF37-CAJA DE COMPENSACIÓN FAMILIAR DEL NORTE DE SANTANDER COMFANORTE</option>
+                        <option value="27">CCF38-CAJA DE COMPENSACIÓN FAMILIAR DE BARRANCABERMEJA CAFABA</option>
+                        <option value="28">CCF39-CAJA SANTANDEREANA DE SUBSIDIO FAMILIAR CAJASAN</option>
+                        <option value="29">CCF40-CAJA DE COMPENSACIÓN FAMILIAR COMFENALCO SANTANDER</option>
+                        <option value="30">CCF41-CAJA DE COMPENSACIÓN FAMILIAR DE SUCRE</option>
+                        <option value="31">CCF43-CAJA DE COMPENSACIÓN FAMILIAR DE FENALCO COMFENALCO QUINDIO</option>
+                        <option value="32">CCF44-CAJA DE COMPENSACIÓN FAMILIAR DE RISARALDA - COMFAMILIAR RISARALDA</option>
+                        <option value="33">CCF46-CAJA DE COMPENSACIÓN FAMILIAR DEL SUR DEL TOLIMA CAFASUR</option>
+                        <option value="34">Caja de compensacion familiar del norte del tolima comfaminorte</option>
+                        <option value="35">CCF48-CAJA DE COMPENSACIÓN FAMILIAR DEL TOLIMA COMFATOLIMA</option>
+                        <option value="36">CCF50-CAJA DE COMPENSACIÓN FAMILIAR DE FENALCO DEL TOLIMA - COMFENALCO</option>
+                        <option value="37">CCF56-CAJA DE COMPENSACIÓN FAMILIAR COMFENALCO DEL VALLE DEL CAUCA - COMFENALCO VALLE</option>
+                        <option value="38">CCF57-CAJA DE COMPENSACIÓN FAMILIAR DEL VALLE DEL CAUCA COMFAMILIAR ANDI - COMFANDI</option>
+                        <option value="39">CCF63-CAJA DE COMPENSACIÓN FAMILIAR DEL PUTUMAYO - COMFAMILIAR PUTUMAYO</option>
+                        <option value="40">CCF64-CAJA DE COMPENSACIÓN FAMILIAR DE SAN ANDRES Y PROVIDENCIA, ISLAS CAJASAI</option>
+                        <option value="41">CCF65-CAJA DE COMPENSACIÓN FAMILIAR DEL AMAZONAS CAFAMAZ</option>
+                        <option value="42">CCF67-CAJA DE COMPENSACIÓN FAMILIAR DE ARAUCA COMFIAR</option>
+                        <option value="43">CCF68-CAJA DE COMPENSACIÓN FAMILIAR CAMPESINA COMCAJA</option>
+                        <option value="44">CCF69-CAJA DE COMPENSACIÓN FAMILIAR DEL CASANARE - COMFACASANARE</option>
+                    </select>
                 </div>
                 <div class="column">
                     <h2 class="label">Banco</h2>
-                    <select class="input" v-model="employeeForm.bank">
+                    <select class="input" v-model.number="employeeForm.bank">
                         <option value="1">Bancamía</option>
                         <option value="2">Bancolombia</option>
                         <option value="3">Bancoomeva</option>
@@ -348,7 +397,7 @@
                         <option value="42">RappiPay</option>
                     </select>
                     <h2 class="label">Fondo de Cesantías</h2>
-                    <select class="input" v-model="employeeForm.illness">
+                    <select class="input" v-model.number="employeeForm.illness">
                         <option value="1">230201-PROTECCIÓN</option>
                         <option value="2">230301-PORVENIR</option>
                         <option value="3">230901-OLD MUTUAL (ANTES SKANDIA)</option>
@@ -358,6 +407,7 @@
                     </select>
                 </div>
             </form>
+            <button @click="submitFrom" class="button-global btn-center">Crear</button>
         </div>
     </div>
 </template>
@@ -392,19 +442,20 @@
 
     interface IEmployeeForm {
         typeId: string
-        id: number | null
+        id: number 
         name: string 
         lastname: string
 
-        department: number | null
-        municipality: number | null
-        phoneNumber: number | null
+        department: number
+        municipality: number
+        address: string
+        phoneNumber: number
         email: string
 
         contractType: number
         joinDate: Date
-        endDate?: Date
-        salary: number | null
+        endDate: Date
+        salary: number
         integralSalary: boolean
         paymentFrequency: number
         workerType: number
@@ -415,12 +466,13 @@
 
         position: string
         area: number
-        vacationDays: number | null
+        vacationDays: number
 
         paymentMethod: number
 
         eps: number
         bank: number
+        compensation: number
         insurance: number
         illness: number
     }
@@ -429,33 +481,38 @@
 
     const employeeForm: Ref<IEmployeeForm> = ref({
         typeId: "CC",
-        id: null,
+        id: 0,
         name: "",
         lastname: "",
-        department: null,
-        municipality: null,
-        phoneNumber: null,
+        department: 0,
+        municipality: 0,
+        address: "",
+        phoneNumber: 0,
         email: "",
         contractType: 1,
         joinDate: new Date(),
         endDate: new Date(),
-        salary: null,
+        salary: 0,
         integralSalary: false,
         paymentFrequency: 1,
-        workerType: 1,
+        workerType: 0,
         workerSubType: 1,
         transport: false,
         saturdays: false,
         riskLevel: 1,
         position: "",
         area: 1,
-        vacationDays: null,
-        paymentMethod: 1,
-        eps: 1,
-        bank: 1,
-        insurance: 1,
-        illness: 1
+        vacationDays: 0,
+        paymentMethod: 0,
+        eps: 0,
+        bank: 0,
+        compensation: 0,
+        insurance: 0,
+        illness:0
     })
+
+
+
 
     // Computed value for integral salary
     const disabledIntegral : Ref<boolean> = ref(true)
@@ -492,30 +549,51 @@
         }
     );
 
-
+    
 
     const submitFrom = async () => {
-        const employee : IEmployeeClean = {
-            Emp_codigo: 0, //Se asigna automaticamente
-            Per_codigo: 0, //Se asigna automaticamente
-            Per_tipoId: employeeForm.value.typeId,
-            Per_id: employeeForm.value.id,
-            Per_nombre: employeeForm.value.name,
-            Per_apellido: employeeForm.value.lastname,
-            Per_correo: employeeForm.value.email,
-            Per_telefono: employeeForm.value.phoneNumber,
-            Emp_cargo: employeeForm.value.position,
-            Emp_salario: employeeForm.value.salary,
-            Emp_fechaingreso: employeeForm.value.joinDate
-        }
+    const employee: IEmployeeClean = {
+        Emp_codigo: 0, // Se asigna automáticamente
+        Per_codigo: 0, // Se asigna automáticamente
+        Usr_codigo: 0, // Se asigna aquí
+        Per_tipoId: employeeForm.value.typeId,
+        Per_id: employeeForm.value.id,
+        Per_nombre: employeeForm.value.name,
+        Per_apellido: employeeForm.value.lastname,
+        Per_correo: employeeForm.value.email,
+        Per_telefono: employeeForm.value.phoneNumber,
+        Emp_cargo: employeeForm.value.position,
+        Emp_area: employeeForm.value.area,
+        Emp_tipoContrato: employeeForm.value.contractType,
+        Emp_tipoTrabajador: employeeForm.value.workerType,
+        Emp_subtipoTrabajador: employeeForm.value.workerSubType,
+        Emp_diasVacacionesAcumulados: employeeForm.value.vacationDays,
+        Emp_salario: employeeForm.value.salary,
+        Emp_auxilioTransporte: employeeForm.value.transport,
+        Emp_salarioIntegral: employeeForm.value.integralSalary,
+        Emp_frecuenciaPago: employeeForm.value.paymentFrequency,
+        Emp_metodoDePago: employeeForm.value.paymentMethod,
+        Emp_nivelDeRiesgo: employeeForm.value.riskLevel,
+        Emp_sabadoLaboral: employeeForm.value.saturdays,
+        Emp_fechaingreso: employeeForm.value.joinDate,
+        Emp_fechaFinContrato: employeeForm.value.endDate,
+        Emp_eps: employeeForm.value.eps,
+        Emp_banco: employeeForm.value.bank,
+        Emp_cajaCompensacion: employeeForm.value.compensation, // Asumido "caja de compensación" corresponde a "bank"
+        Emp_fondoPensiones: employeeForm.value.insurance, // Asumido "fondo de pensiones" corresponde a "insurance"
+        Emp_fondoCesantias: employeeForm.value.illness, // Asumido "fondo de cesantías" corresponde a "illness"
+        Mun_nombre: employeeForm.value.municipality, // Asumido "Mun_nombre" corresponde a "municipality"
+        Emp_direccion: employeeForm.value.address, // Asignar si hay un campo de dirección en el formulario
+    };
 
-        if (await payrollStore.createData(employee)) {
-            router.push({name: 'payroll'})
-        } else {
-            console.log("Error, no se pudo crear el empleado")
-            swal("Error", "No se pudo crear el empleado", "error")
-        }
+    if (await payrollStore.createData(employee)) {
+        router.push({ name: 'payroll' });
+    } else {
+        console.log("Error, no se pudo crear el empleado");
+        swal("Error", "No se pudo crear el empleado", "error");
     }
+};
+
 </script>
 
 <style scoped lang="scss">

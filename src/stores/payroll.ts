@@ -104,7 +104,7 @@ export const usePayrollStore = defineStore('payroll', {
         
         /**
          * Fills the dataList with dummy data for development purposes.
-         */
+         
         devFillerData() {
             this.dataList = [
                 {
@@ -135,5 +135,6 @@ export const usePayrollStore = defineStore('payroll', {
                 },
             ]
         }
+        */
     }
 })

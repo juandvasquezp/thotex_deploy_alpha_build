@@ -25,7 +25,14 @@
   </template>
   <script setup lang="ts">
 import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from '@google/generative-ai';
-  import { Ref, ref } from 'vue';
+  import { Ref, ref, onMounted } from 'vue';
+  import { usePayrollStore } from '@/stores/payroll';
+
+  const payrollStore = usePayrollStore();
+
+  onMounted(() => {
+    payrollStore.fetchDataList();
+  })
 
   const showModal = ref(false); // Variable para controlar la visibilidad del modal
 
@@ -75,8 +82,19 @@ function toggleModal() {
   ];
   
   let chatHistory : Ref<Message[]> = ref([
-
-  ]);
+      {
+        role: "user",
+        parts: [
+          {text: "Esta es la lista actualizada de empleados que tiene el usuario, quiero que la tengas en cuenta de ahora en adelante, esta lista siempre estará actualizada:" + JSON.stringify(payrollStore.dataList)},
+        ],
+      }, 
+      {
+        role: "model",
+        parts: [
+          {text: "Entiendo que esta lista de empleados siempre va a estar actualizada, y en base a esta puedo responder las preguntas de los usuarios"},
+        ],
+      },
+    ],);
   let userInput = ref("");
   
   async function sendMessage() {
