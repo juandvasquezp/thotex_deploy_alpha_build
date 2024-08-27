@@ -7,17 +7,17 @@
             <form class="form-global" onsubmit="event.preventDefault()">
                 <div class="column">
                     <h2 class="label">Tipo de Identificación</h2>
-                    <select required v-model.number="employeeForm.typeId" class="input">
-                        <option value="1">Cédula de ciudadania</option>
-                        <option value="2">Tarjeta de identidad</option>
-                        <option value="3">Cédula de extranjería</option>
-                        <option value="4">Pasaporte</option>
-                        <option value="5">Registro Civil</option>
-                        <option value="6">Tarjeta de Extranjería</option>
-                        <option value="7">Documento de identificación extranjero</option>
-                        <option value="8">PEP</option>
-                        <option value="9">NUIP</option>
-                        <option value="10">NIT</option>
+                    <select required v-model="employeeForm.typeId" class="input">
+                        <option value="CC">Cédula de ciudadania</option>
+                        <option value="TI">Tarjeta de identidad</option>
+                        <option value="CE">Cédula de extranjería</option>
+                        <option value="PA">Pasaporte</option>
+                        <option value="RC">Registro Civil</option>
+                        <option value="TE">Tarjeta de Extranjería</option>
+                        <option value="DIE">Documento de identificación extranjero</option>
+                        <option value="PEP">PEP</option>
+                        <option value="NUIP">NUIP</option>
+                        <option value="NIT">NIT</option>
                     </select>
                     <h2 class="label">Nombres</h2>
                     <input required v-model="employeeForm.name" class="input" type="text" placeholder="Nombre" />
@@ -391,7 +391,7 @@
     })
 
     interface IEmployeeForm {
-        typeId: number
+        typeId: string
         id: number | null
         name: string 
         lastname: string
@@ -428,7 +428,7 @@
 
 
     const employeeForm: Ref<IEmployeeForm> = ref({
-        typeId: 1,
+        typeId: "CC",
         id: null,
         name: "",
         lastname: "",
